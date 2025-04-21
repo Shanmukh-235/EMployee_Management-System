@@ -111,7 +111,7 @@
             </div>
 
             <div class="col-lg-6 d-flex align-items-center justify-content-center image-section">
-                <img src="./assets/hm.png" alt="Employee illustration" class="responsive-img" />
+                <img src="./assets/admhm.png" alt="Employee illustration" class="responsive-img" />
             </div>
         </div>
     </div>
