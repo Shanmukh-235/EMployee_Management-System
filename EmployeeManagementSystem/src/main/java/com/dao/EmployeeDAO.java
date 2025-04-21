@@ -2,7 +2,10 @@ package com.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.model.Employee;
 
@@ -31,5 +34,42 @@ public class EmployeeDAO {
 	public void rollback() throws SQLException {
 		connection.rollback();
 		connection.close();
+	}
+	public boolean checkLogin(String email, String password) throws ClassNotFoundException, SQLException {
+		Connection connection = ConnectionManager.getConnection();
+		connection.setAutoCommit(true);
+		String query = "SELECT COUNT(*) FROM EMPLOYEE WHERE EMAIL = ? AND PASSWORD = ?";
+		PreparedStatement statement = connection.prepareStatement(query);
+		statement.setString(1, email);
+		statement.setString(2, password);
+		ResultSet set = statement.executeQuery();
+		int count = 0;
+		if(set.next()) {
+			count = set.getInt(1);
+		}
+		connection.close();
+		if(count==1) {
+			return true;
+		}
+		return false;
+	}
+	public List<Employee> findAll() throws ClassNotFoundException, SQLException {
+		Connection connection = ConnectionManager.getConnection();
+		String query = "SELECT * FROM EMPLOYEE";
+		PreparedStatement statement = connection.prepareStatement(query);
+		ResultSet set = statement.executeQuery();
+		List<Employee> empList = new ArrayList<Employee>();
+		while(set.next()) {
+			Employee employee = new Employee();
+			employee.setEmail(set.getString(1));
+			employee.setName(set.getString(2));
+			employee.setPassword(set.getString(3));
+			employee.setAge(set.getInt(4));
+			employee.setGender(set.getString(5));
+			employee.setMobile(set.getString(6));
+			employee.setDepartment(set.getString(7));
+			employee.setAddress(set.getString(8));
+		}
+		return empList;
 	}
 }

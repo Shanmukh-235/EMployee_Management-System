@@ -151,13 +151,16 @@
     </nav>
 
     <div id="home" class="container">
-		<form>
+		<form action='login'>
             <h1 style="text-align: center;">Login Page</h1>
+            <%if(request.getAttribute("status")!=null){%>
+	        <h4 style="text-align: center;"><%= request.getAttribute("status") %> </h4> <%
+	        }%>
             <label for="loginEmail">Email</label>
-            <input type="email" id="loginEmail" required />
+            <input type="email" id="loginEmail" name = "email"required />
 
             <label for="loginPassword">Password</label>
-            <input type="password" id="loginPassword" required />
+            <input type="password" id="loginPassword" name = "password" required />
 
             <button type="submit">Login</button>
         </form>
