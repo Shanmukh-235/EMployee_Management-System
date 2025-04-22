@@ -21,7 +21,7 @@
       font-weight: 500;
     }
     body {
-          background: linear-gradient(135deg,#ec77ab, #7873f5);
+          background: linear-gradient(135deg,rgba(42, 123, 155, 1) 0%, rgba(87, 199, 133, 1) 50%, rgba(237, 221, 83, 1) 100%);;
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
@@ -35,7 +35,6 @@
 	  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 	  color: #fff;
 	  border: 1px solid #fff;
-	  transform: scale(0.9);
 	  transform-origin: top center;
 	}
 
@@ -44,69 +43,58 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Employee Management System</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-        aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="./index.jsp">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="Register.jsp">Registration</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="login.jsp">Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About Us</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contact Us</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+	<nav class="navbar navbar-expand-lg bg-body-tertiary">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="#">Employee Management System</a>
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
 
-  <div id="reg-form" class="container mt-5" style="max-width: 480px; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);">
-    <form class="row g-3" action="saveuser">
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+					<li class="nav-item"><a class="nav-link active"
+						aria-current="page" href="admin.jsp">Home</a></li>
+					<li class="nav-item"><a class="nav-link" href="findAll">View
+							Employee</a></li>
+					<li class="nav-item"><a class="nav-link" href="search.jsp">Search
+							Employee</a></li>
+					<li class="nav-item"><a class="nav-link" href="logout">Logout</a></li>>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div id="reg-form" class="container mt-5" style="max-width: 480px; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);">
+    <form class="row g-3" action="edituser">
       <!-- Name -->
       <%if(request.getAttribute("status")!=null){%>
         <h4 style="text-align: center;"><%= request.getAttribute("status") %> </h4> <%
         }%>
       <div class="col-12">
         <label for="validationDefaultUsername" class="form-label">Name</label>
-        <input type="text" class="form-control" id="validationDefaultUsername" name="name" required>
+        <input type="text" class="form-control" id="validationDefaultUsername" name="name" value='<%=request.getParameter("name") %>'>
       </div>
 
       <!-- Email -->
-      <div class="col-md-6">
+      <div class="col-md-12">
         <label for="validationDefault01" class="form-label">Email</label>
-        <input type="email" class="form-control" id="validationDefault01" name="email" required>
+        <input type="email" class="form-control" id="validationDefault01" name="email" value='<%=request.getParameter("email") %>' readonly>
       </div>
 
-      <!-- Password -->
-      <div class="col-md-6">
-        <label for="validationDefault02" class="form-label">Password</label>
-        <input type="password" class="form-control" id="validationDefault02" name="password" required>
-      </div>
 
       <!-- Mobile -->
       <div class="col-md-9">
         <label for="validationDefault03" class="form-label">Mobile</label>
-        <input type="tel" class="form-control" id="validationDefault03" name="mobile" required>
+        <input type="tel" class="form-control" id="validationDefault03" name="mobile" value='<%=request.getParameter("mobile") %>'>
       </div>
 
       <!-- Department -->
       <div class="col-md-3">
         <label for="validationDefault04" class="form-label">Department</label>
-        <input type="text" class="form-control" id="validationDefault03" name="department" required>
+        <input type="text" class="form-control" id="validationDefault03" name="department" value='<%=request.getParameter("department") %>'>
       </div>
 
       <!-- Gender -->
@@ -128,24 +116,19 @@
       
       <div class="col-md-4">
         <label for="validationDefault03" class="form-label">Age</label>
-        <input type="text" class="form-control" id="validationDefault03" name="age" required>
+        <input type="text" class="form-control" id="validationDefault03" name="age" value='<%=request.getParameter("age") %>'>
       </div>
       
 
       <!-- Address -->
       <div class="col-12">
         <label for="validationDefault05" class="form-label">Address</label>
-        <textarea class="form-control" id="validationDefault05" rows="3" name="address" required></textarea>
-      </div>
-
-      <!-- Login Link -->
-      <div class="col-12">
-        <p>Already Existing Person? <a href="./login.jsp" class="text-white fw-bold">Login</a></p>
+        <textarea class="form-control" id="validationDefault05" rows="3" name="address" value='<%=request.getParameter("address") %>'></textarea>
       </div>
 
       <!-- Submit -->
       <div class="col-4">
-        <button class="btn btn-light w-100" type="submit">Register</button>
+        <button class="btn btn-light w-100" type="submit">Submit</button>
       </div>
     </form>
   </div>

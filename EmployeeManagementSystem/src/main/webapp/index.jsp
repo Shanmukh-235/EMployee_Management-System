@@ -88,10 +88,9 @@
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="./register.jsp">Registration</a></li>
-                    <li class="nav-item"><a class="nav-link" href="adminLogin.jsp">Admin</a></li>
                     <li class="nav-item"><a class="nav-link" href="login.jsp">Employee</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
-                    <li class="nav-item"><a class="nav-link" href="https://shanmukha-s-port-folio.vercel.app/">Contact Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="aboutus.jsp">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
                 </ul>
             </div>
         </div>
@@ -106,7 +105,7 @@
                     <h5 class="text-center" style="padding-bottom: 80px;">Your one-stop solution for managing employee records efficiently.</h5>
                     <p class="text-center">Please select an option from the menu above to get started.</p>
                     <div class="d-flex justify-content-center mt-4 flex-wrap gap-3" style="width: 100%; padding: 5px 0 35px 0; ">
-                        <a href="adminLogin.jsp" class="btn btn-light text-dark">Admin Login</a>
+                        <a href="register.jsp" class="btn btn-light text-dark">Register</a>
                         <a href="login.jsp" class="btn btn-light text-dark">Employee Login</a>
                     </div>
                 </div>

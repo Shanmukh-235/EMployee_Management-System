@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,8 +26,8 @@
         }
 
         body {
-            background: #EEAECA;
-            background: linear-gradient(120deg,rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+            /*background: #EEAECA;*/
+            background: linear-gradient(135deg, #C33764, #1D2671);
             background-repeat: no-repeat;
             background-position: center;
             background-size: cover;
@@ -95,8 +97,11 @@
         </div>
     </nav>
 
-    <div class="container-fluid main-content" style="padding-left: 40px;">
+    <div class="container-fluid main-content" style="padding-right: 70px;">
         <div class="row w-100">
+            <div class="col-lg-6 d-flex align-items-center justify-content-center image-section">
+                <img src="./assets/admhm.png" alt="Employee illustration" class="responsive-img" />
+            </div>
             <div class="col-lg-6 info-section d-flex align-items-center justify-content-center">
                 <div class="container" id="reg-form">
                     <h2 class="text-center" style="padding-top: 20px;">Welcome to</h2>
@@ -104,14 +109,10 @@
                     <h5 class="text-center" style="padding-bottom: 80px;">Your one-stop solution for managing employee records efficiently.</h5>
                     <p class="text-center">Please select an option from the menu above to get started.</p>
                     <div class="d-flex justify-content-center mt-4 flex-wrap gap-3" style="width: 100%; padding: 5px 0 35px 0; ">
-                        <a href="adminLogin.jsp" class="btn btn-light text-dark">Admin Login</a>
-                        <a href="login.jsp" class="btn btn-light text-dark">Employee Login</a>
+                        <a href="findAll" class="btn btn-light text-dark">Employee List</a>
+                        <a href="#" class="btn btn-light text-dark">Search Employee</a>
                     </div>
                 </div>
-            </div>
-
-            <div class="col-lg-6 d-flex align-items-center justify-content-center image-section">
-                <img src="./assets/admhm.png" alt="Employee illustration" class="responsive-img" />
             </div>
         </div>
     </div>

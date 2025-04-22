@@ -12,9 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.dao.EmployeeDAO;
 import com.model.Employee;
-
-@WebServlet("/saveuser")
-public class SaveUser extends HttpServlet {
+@WebServlet("/edituser")
+public class EditUser extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Employee employee = new Employee();
 		employee.setName(request.getParameter("name"));
@@ -28,16 +27,14 @@ public class SaveUser extends HttpServlet {
 		
 		EmployeeDAO dao = new EmployeeDAO();
 		try {
-			boolean status = dao.saveuser(employee);
-			RequestDispatcher dispatcher = request.getRequestDispatcher("register.jsp");
+			boolean status = dao.updateEmployee(employee);
 			if(status) {
 				dao.commit();
-				request.setAttribute("status", "Registered Successfully");
-				dispatcher.forward(request, response);
-			}
-			else {
+				response.sendRedirect("findAll");
+			} else {
 				dao.rollback();
-				request.setAttribute("status", "Registered Failed");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("edit.jsp");
+				request.setAttribute("status", "Updation Failed");
 				dispatcher.forward(request, response);
 			}
 		} catch (ClassNotFoundException e) {
@@ -48,4 +45,5 @@ public class SaveUser extends HttpServlet {
 			e.printStackTrace();
 		}
 	}
+
 }

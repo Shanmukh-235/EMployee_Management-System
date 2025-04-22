@@ -72,16 +72,13 @@
                         <a class="nav-link active" href="./index.jsp">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="Register.jsp">Registration</a>
+                        <a class="nav-link" href="register.jsp">Registration</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="adminLogin.jsp">Admin</a>
+                        <a class="nav-link" href="login.jsp">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="login.jsp">Employee</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About Us</a>
+                        <a class="nav-link" href="aboutus.jsp">About Us</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="https://shanmukha-s-port-folio.vercel.app/">Contact Us</a>

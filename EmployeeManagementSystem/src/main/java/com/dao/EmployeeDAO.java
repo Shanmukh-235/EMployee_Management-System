@@ -69,7 +69,25 @@ public class EmployeeDAO {
 			employee.setMobile(set.getString(6));
 			employee.setDepartment(set.getString(7));
 			employee.setAddress(set.getString(8));
+			empList.add(employee);
 		}
 		return empList;
+	}
+	public boolean updateEmployee(Employee employee) throws ClassNotFoundException, SQLException {
+		connection = ConnectionManager.getConnection();
+		String query = "UPDATE EMPLOYEE SET NAME = ?, AGE = ?, GENDER = ?, MOBILE = ?, DEPARTMENT = ?, ADDRESS = ? WHERE EMAIL = ?";
+		PreparedStatement statement = connection.prepareStatement(query);
+		statement.setString(1, employee.getName());
+		statement.setInt(2, employee.getAge());
+		statement.setString(3, employee.getGender());
+		statement.setString(4, employee.getMobile());
+		statement.setString(5, employee.getDepartment());
+		statement.setString(6, employee.getAddress());
+		statement.setString(7, employee.getEmail());
+		int count = statement.executeUpdate();
+		if(count==1) {
+			return true;
+		}
+		return false;
 	}
 }
