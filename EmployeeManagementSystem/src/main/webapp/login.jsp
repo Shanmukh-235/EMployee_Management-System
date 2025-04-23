@@ -81,7 +81,7 @@
                         <a class="nav-link" href="aboutus.jsp">About Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="https://shanmukha-s-port-folio.vercel.app/">Contact Us</a>
+                        <a class="nav-link" href="#">Contact Us</a>
                     </li>
                 </ul>
             </div>
