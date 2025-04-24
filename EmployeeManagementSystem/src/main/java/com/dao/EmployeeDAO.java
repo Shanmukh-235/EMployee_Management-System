@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -89,5 +90,32 @@ public class EmployeeDAO {
 			return true;
 		}
 		return false;
+	}
+	public Employee searchEmployee(String email) throws ClassNotFoundException, SQLException {
+		Connection connection = ConnectionManager.getConnection();
+		connection.setAutoCommit(true);
+		String query = "SELECT * FROM EMPLOYEE WHERE EMAIL=?";
+		PreparedStatement statement = connection.prepareStatement(query);
+		statement.setString(1,email);
+		ResultSet set = statement.executeQuery();
+		Employee employee = new Employee();
+		while(set.next()) {
+			employee.setEmail(set.getString(1));
+			employee.setName(set.getString(2));
+			employee.setPassword(set.getString(3));
+			employee.setAge(set.getInt(4));
+			employee.setGender(set.getString(5));
+			employee.setMobile(set.getString(6));
+			employee.setDepartment(set.getString(7));
+			employee.setAddress(set.getString(8));
+		}
+		return employee;
+	}
+	public void deleteEmployee(String email) throws ClassNotFoundException, SQLException {
+		connection = ConnectionManager.getConnection();
+		String query = "DELETE FROM EMPLOYEE WHERE EMAIL = ?";
+		PreparedStatement statement = connection.prepareStatement(query);
+		statement.setString(1, email);
+		statement.executeUpdate();
 	}
 }

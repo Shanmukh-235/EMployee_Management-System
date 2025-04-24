@@ -12,12 +12,14 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.dao.EmployeeDAO;
+import com.model.Employee;
 
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
+
 		HttpSession session = request.getSession(true);
 		if(email.equals("admin@codegnan.com")&&password.equals("admin@cg")) {
 			session.setAttribute("email", email);
@@ -27,7 +29,9 @@ public class LoginServlet extends HttpServlet {
 			try {
 				boolean status = dao.checkLogin(email,password);
 				if(status) {
+					Employee employee = dao.searchEmployee(email);
 					session.setAttribute("email", email);
+					session.setAttribute("name", employee.getName());
 					response.sendRedirect("employee.jsp");
 				}else {
 					request.setAttribute("status", "Invalid Credentials");

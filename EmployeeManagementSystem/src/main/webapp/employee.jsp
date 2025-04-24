@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,8 +26,8 @@
         }
 
         body {
-            background: #EEAECA;
-            background: linear-gradient(120deg,rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+            background-color: #0093E9;
+			background-image: linear-gradient(61deg, #0093E9 0%, #80D0C7 100%);
             background-repeat: no-repeat;
             background-position: center;
             background-size: cover;
@@ -86,33 +88,26 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="./register.jsp">Registration</a></li>
-                    <li class="nav-item"><a class="nav-link" href="login.jsp">Login</a></li>
-                    <li class="nav-item"><a class="nav-link" href="aboutus.jsp">About Us</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contactus.jsp">Contact Us</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="employee.jsp">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="findByEmail">View Profile</a></li>
+                    <li class="nav-item"><a class="nav-link" href="logout">Logout</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <div class="container-fluid main-content" style="padding-left: 40px;">
-        <div class="row w-100">
-            <div class="col-lg-6 info-section d-flex align-items-center justify-content-center">
-                <div class="container" id="reg-form">
-                    <h2 class="text-center" style="padding-top: 20px;">Welcome to</h2>
-                    <h1 class="text-center">Employee Management System</h1>
-                    <h5 class="text-center" style="padding-bottom: 80px;">Your one-stop solution for managing employee records efficiently.</h5>
-                    <p class="text-center">Please select an option from the menu above to get started.</p>
-                    <div class="d-flex justify-content-center mt-4 flex-wrap gap-3" style="width: 100%; padding: 5px 0 35px 0; ">
-                        <a href="register.jsp" class="btn btn-light text-dark">Register</a>
-                        <a href="login.jsp" class="btn btn-light text-dark">Employee Login</a>
-                    </div>
-                </div>
-            </div>
-
+    <div class="container-fluid main-content">
+        <div class="row w-100 ">
             <div class="col-lg-6 d-flex align-items-center justify-content-center image-section">
-                <img src="./assets/hm.png" alt="Employee illustration" class="responsive-img" />
+                <img src="./assets/palm.png" alt="Employee illustration" class="responsive-img" />
+            </div>
+            <div class="col-lg-6 info-section d-flex align-items-center justify-content-center" style="padding:110px 40px 0 0 ;">
+                <div class="container" id="reg-form">
+                    <h2 class="text-center" style="padding-top: 20px;">Welcome to Dash board</h2>
+                    <h1 class="text-center"> <%=session.getAttribute("name") %> </h1>
+                   <!--   <h5 class="text-center" style="padding-bottom: 80px;">Your one-stop solution for managing employee records efficiently.</h5>
+                -->
+                </div>
             </div>
         </div>
     </div>

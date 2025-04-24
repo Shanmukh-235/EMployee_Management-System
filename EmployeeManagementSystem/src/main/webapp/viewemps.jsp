@@ -154,7 +154,7 @@
                     				<a href='edit.jsp?email=${employee.email}&name=${employee.name}&age=${employee.age}&mobile=${employee.mobile}&department=${employee.department}&address=${employee.address}'>Edit</a>
                     			</td>
                     			<td>
-                    				<a href='DELETE?EMAIL=${employee.email}'>Delete</a>
+                    				<a href='delete?email=${employee.email}'>Delete</a>
                     			</td>
                     		</tr>
                     	</c:forEach>

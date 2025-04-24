@@ -21,7 +21,10 @@
       font-weight: 500;
     }
     body {
-          background: linear-gradient(135deg,rgba(42, 123, 155, 1) 0%, rgba(87, 199, 133, 1) 50%, rgba(237, 221, 83, 1) 100%);;
+          
+          background-color: #8BC6EC;
+background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
+          
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
@@ -61,7 +64,7 @@
 							Employee</a></li>
 					<li class="nav-item"><a class="nav-link" href="search.jsp">Search
 							Employee</a></li>
-					<li class="nav-item"><a class="nav-link" href="logout">Logout</a></li>>
+					<li class="nav-item"><a class="nav-link" href="logout">Logout</a></li>
 				</ul>
 			</div>
 		</div>

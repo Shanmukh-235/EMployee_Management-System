@@ -1,199 +1,166 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Employee Management System</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7"
+	crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<title>Employee Management System</title>
 
-        body {
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            min-height: 100vh;
-            padding-top: 150px;
-            transition: background-image 0.5s ease;
-        }
+<style>
+        html,
+		body {
+		    height: 100%;
+		    margin: 0;
+		    padding: 0;
+		}
+		
+		.navbar-brand,
+		.nav-link {
+		    color: #000 !important;
+		    font-weight: 500;
+		}
+		
+		body {
+		    background-color: #4158D0;
+			background-image: linear-gradient(45deg, #fdc830, #f37335);
+		    background-repeat: no-repeat;
+		    background-position: center;
+		    background-size: cover;
+		    color: #fff;
+		}
+		
+		#reg-form {
+		    background-color: rgba(255, 255, 255, 0.2);
+		    padding: 30px;
+		    border-radius: 25px;
+		    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+		    color: #fff;
+		    border: 1px solid #fff;
+		}
+		
+		.main-content {
+		    min-height: calc(100vh - 70px);
+		    display: flex;
+		    align-items: center;
+		    justify-content: center;
+		}
+		
+		.info-section {
+		    display: flex;
+		    flex-direction: column;
+		    justify-content: center;
+		    height: 100%;
+		}
+		
+		
+		table {
+		    width: 100%;
+		    margin-top: 20px;
+		    background-color: transparent;
+		    color: #fff;
+		    border-collapse: collapse;
+		}
+		
+		th,
+		td {
+		    padding: 8px 10px; /* Reduced padding */
+		    border-bottom: 1px solid #fff; /* Only bottom border */
+		    border: none;
+		    text-align: center;
+		}
+		
+		th {
+		    
+		    font-weight: bold;
+		    color: #fff;
+		}
+		
+		a {
+		    text-decoration: none;
+		    color: #fff;
+		}
 
-        .welcome-bar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            text-align: center;
-            padding: 15px 0;
-            font-size: 24px;
-            font-weight: bold;
-            color: whitesmoke;
-            z-index: 1000;
-        }
-        .welcome-bar:hover{
-            text-decoration: none;
-            color: beige;
-        }
+		
+		@media (max-width: 768px) {
+		    .main-content {
+		        flex-direction: column;
+		        padding: 20px;
+		    }
+		
+		    .info-section,
+		    .image-section {
+		        margin-bottom: 20px;
+		    }
+		}
 
-        nav {
-            position: fixed;
-            top: 55px;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            padding: 15px 0;
-            z-index: 999;
-            background-color: transparent;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 18px;
-            cursor: pointer;
-        }
-
-        nav a:hover {
-            text-decoration: underline;
-            color: bisque;
-        }
-
-        .container,
-        .section-content,
-        .home-content {
-            max-width: 500px;
-            margin: 30px auto;
-            background: rgba(255, 255, 255, 0.6);
-            padding: 30px;
-            border-radius: 25px;
-            border: 2px solid #444;
-            display: none;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-        .home-content:hover{
-            text-decoration: none;
-            color: black;
-        }
-
-
-        form {
-            display: flex;
-            flex-direction: column;
-        }
-
-        label {
-            margin-top: 12px;
-            font-weight: bold;
-        }
-
-        input,
-        select,
-        textarea {
-            padding: 10px;
-            margin-top: 5px;
-            border: 1px solid #aaa;
-            border-radius: 5px;
-        }
-
-        .gender {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 5px;
-        }
-
-        .gender label {
-            font-weight: normal;
-        }
-
-        button {
-            margin-top: 20px;
-            padding: 12px;
-            background-color: lightblue;
-            color: white;
-            border: none;
-            border-radius: 25px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        button:hover {
-            background-color: #005f9e;
-        }
-
-        .home-content {
-            text-align: center;
-            font-size: 24px;
-            font-weight: bold;
-            color: darkslategray;
-        }
     </style>
+
 </head>
 
 <body>
-    <div class="welcome-bar" >
-        <h3>WELCOME TO EMPLOYEE MANAGEMENT SYSTEM</h3>
+	<nav class="navbar navbar-expand-lg bg-body-tertiary">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="#">Employee Management System</a>
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+					<li class="nav-item"><a class="nav-link active"
+						aria-current="page" href="./index.jsp">Home</a></li>
+					<li class="nav-item"><a class="nav-link" href="register.jsp">Registration</a>
+					</li>
+					<li class="nav-item"><a class="nav-link" href="login.jsp">Login</a>
+					</li>
+					<li class="nav-item"><a class="nav-link" href="aboutus.jsp">About Us</a>
+					</li>
+					<li class="nav-item"><a class="nav-link" href="contactus.jsp">Contact
+							Us</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<!-- Centered Profile Card -->
+    <div class="d-flex justify-content-center align-items-center" style="height: calc(100vh - 70px);">
+        <div class="card w-60 p-4" id="reg-form">
+            <h2 class="text-center mb-4">Contact us</h2>
+
+            <ul class="nav nav-tabs" id="employeeTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                </li>
+            </ul>
+
+            <div class="tab-content" id="employeeTabContent reg-form">
+                <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                    <table class="">
+                        <tr><th>Name</th><td>Shri Shanmukhananda Baba</td></tr>
+                        <tr><th>Age</th><td>99999+</td></tr>
+                        <tr><th>Mobile</th><td>+69 420420420</td></tr>
+                        <tr><th>Address</th><td>Moghalrajapuram Guhalu, Opposite Codegnan building,
+                        Moghalrajapuram, Vijayawada</td></tr>
+                        <tr><th>External Links</th> <td><a href="mailto:shanmukhapoornachand14316@gmail.com"><i class="fa-solid fa-envelope"></i></a> | <a href="https://github.com/Shanmukh-235"><i class="fa-brands fa-github"></i></a> | <a href="www.linkedin.com/in/shanmukha-poorna-chand-adapaka"><i class="fa-brands fa-linkedin-in"></i></a></td></tr>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <nav>
-        <a href="index.jsp">Home</a>
-        <a href="register.jsp">Registration</a>
-        <a href="login.jsp">Login</a>
-        <a href="aboutus.jsp">About Us</a>
-        <a href="contactus.jsp">Contact Us</a>
-    </nav>
-
-    <div id="home" class="container">
-		<h2>Contact Us</h2>
-        <p>Email: anand@codegnan.com<br>Phone: +91 8977544170<br>Address: Mogalrajpuram Bus Stand,Codegnan Destination <br>Vijayawada, India</p>
-    </div>
-    <div id="registration" class="container">
-        
-    </div>
-    <div id="login" class="container">
-        
-    </div>
-
-    <div id="admin" class="section-content">
-    </div>
-
-    <div id="about" class="section-content">
-        
-    </div>
-
-    <div id="contact" class="section-content">
-        
-    </div>
-
-    <script>
-        function showSection(sectionId) {
-            const sections = ['home', 'registration', 'login', 'admin', 'about', 'contact'];
-            const backgrounds = {
-                home: 'url(https://t4.ftcdn.net/jpg/09/02/53/81/240_F_902538150_JCEcejSQkRHHR7d5jE1nbmfhXHdcd9E3.jpg)',
-                registration: 'url(https://t4.ftcdn.net/jpg/09/02/53/81/240_F_902538150_JCEcejSQkRHHR7d5jE1nbmfhXHdcd9E3.jpg)',
-                login: 'url(https://t4.ftcdn.net/jpg/09/02/53/81/240_F_902538150_JCEcejSQkRHHR7d5jE1nbmfhXHdcd9E3.jpg)',
-                admin: 'url(https://t4.ftcdn.net/jpg/09/02/53/81/240_F_902538150_JCEcejSQkRHHR7d5jE1nbmfhXHdcd9E3.jpg)',
-                about: 'url(https://t4.ftcdn.net/jpg/09/02/53/81/240_F_902538150_JCEcejSQkRHHR7d5jE1nbmfhXHdcd9E3.jpg)',
-                contact: 'url(https://t4.ftcdn.net/jpg/09/02/53/81/240_F_902538150_JCEcejSQkRHHR7d5jE1nbmfhXHdcd9E3.jpg)',
-            };
-
-            sections.forEach(id => {
-                document.getElementById(id).style.display = (id === sectionId) ? 'block' : 'none';
-            });
-
-            document.body.style.backgroundImage = backgrounds[sectionId] || '';
-        }
-
-        showSection('home');
-    </script>
-
+	<!-- Bootstrap JS Bundle -->
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-qO0HnZ/Xp2m3xmv0MyQa7dfF4V9z9ozvGzU3ltX0N7dKkkFWTvCqGpJfBx4jo6Z2"
+		crossorigin="anonymous"></script>
 </body>
 
 </html>

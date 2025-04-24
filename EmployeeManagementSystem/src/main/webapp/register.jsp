@@ -58,16 +58,16 @@
             <a class="nav-link active" aria-current="page" href="./index.jsp">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="Register.jsp">Registration</a>
+            <a class="nav-link" href="register.jsp">Registration</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="login.jsp">Login</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">About Us</a>
+            <a class="nav-link" href="aboutus.jsp">About Us</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Contact Us</a>
+            <a class="nav-link" href="contactus.jsp">Contact Us</a>
           </li>
         </ul>
       </div>

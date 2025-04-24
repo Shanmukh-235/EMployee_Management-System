@@ -91,7 +91,7 @@
                     <li class="nav-item"><a class="nav-link active" aria-current="page" href="admin.jsp">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="findAll">View Employee</a></li>
                     <li class="nav-item"><a class="nav-link" href="search.jsp">Search Employee</a></li>
-                    <li class="nav-item"><a class="nav-link" href="logout">Logout</a></li>>
+                    <li class="nav-item"><a class="nav-link" href="logout">Logout</a></li>
                 </ul>
             </div>
         </div>
@@ -110,7 +110,7 @@
                     <p class="text-center">Please select an option from the menu above to get started.</p>
                     <div class="d-flex justify-content-center mt-4 flex-wrap gap-3" style="width: 100%; padding: 5px 0 35px 0; ">
                         <a href="findAll" class="btn btn-light text-dark">Employee List</a>
-                        <a href="#" class="btn btn-light text-dark">Search Employee</a>
+                        <a href="search" class="btn btn-light text-dark">Search Employee</a>
                     </div>
                 </div>
             </div>
